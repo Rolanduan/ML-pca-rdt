@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>十法数学乐园</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">给小朋友的 10 以内思维训练</p>
+        <h1>十法数学乐园</h1>
+        <p class="hero__intro">用拖一拖、点一点、填一填的方式，深度练习破十法、凑十法、评十法和借十法。</p>
+        <div class="hero__actions">
+          <a class="button" href="#playground">开始闯关</a>
+          <a class="button button--ghost" href="#guide">先看口诀</a>
+        </div>
+      </div>
+      <div class="mascot" aria-hidden="true">🧮</div>
+    </header>
+
+    <main>
+      <section id="guide" class="section">
+        <div class="section__heading">
+          <p class="eyebrow">四种方法</p>
+          <h2>先把“十”看清楚</h2>
+        </div>
+        <div class="method-grid">
+          <article class="method-card method-card--blue">
+            <span class="method-card__icon">🍉</span>
+            <h3>破十法</h3>
+            <p>遇到十几减几，把十几拆成“10”和“几”，先用 10 去减，再把剩下的加回来。</p>
+            <strong>例：13 - 8 = 10 - 8 + 3</strong>
+          </article>
+          <article class="method-card method-card--green">
+            <span class="method-card__icon">⭐</span>
+            <h3>凑十法</h3>
+            <p>做加法时，先把一个数补成 10，再加剩下的数，让计算更轻松。</p>
+            <strong>例：8 + 5 = 8 + 2 + 3</strong>
+          </article>
+          <article class="method-card method-card--orange">
+            <span class="method-card__icon">🔍</span>
+            <h3>评十法</h3>
+            <p>先观察谁离 10 最近，估一估、比一比，再决定用凑十还是破十。</p>
+            <strong>例：9 + 6，9 差 1 到 10</strong>
+          </article>
+          <article class="method-card method-card--purple">
+            <span class="method-card__icon">🏰</span>
+            <h3>借十法</h3>
+            <p>个位不够减时，从十位“借 1 个十”，变成 10 个一，再继续减。</p>
+            <strong>例：32 - 7，借 1 个十变 12 - 7</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="playground" class="section playground">
+        <div class="section__heading">
+          <p class="eyebrow">互动闯关</p>
+          <h2>选择一种十法来玩</h2>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="选择练习方法">
+          <button class="tab is-active" data-mode="break" type="button">破十法</button>
+          <button class="tab" data-mode="make" type="button">凑十法</button>
+          <button class="tab" data-mode="judge" type="button">评十法</button>
+          <button class="tab" data-mode="borrow" type="button">借十法</button>
+        </div>
+
+        <div class="game-card">
+          <div class="game-card__top">
+            <div>
+              <p id="modeLabel" class="eyebrow">破十法任务</p>
+              <h3 id="question">13 - 8 = ?</h3>
+            </div>
+            <div class="score" aria-live="polite">⭐ <span id="score">0</span></div>
+          </div>
+
+          <div id="visual" class="ten-frames" aria-label="十格图演示"></div>
+
+          <div id="steps" class="steps"></div>
+
+          <form id="answerForm" class="answer-form">
+            <label for="answer">最后答案</label>
+            <input id="answer" name="answer" type="number" inputmode="numeric" autocomplete="off" required />
+            <button class="button" type="submit">检查答案</button>
+          </form>
+
+          <p id="feedback" class="feedback" aria-live="polite">跟着提示一步一步来吧！</p>
+          <div class="game-card__actions">
+            <button id="hintBtn" class="button button--ghost" type="button">给我提示</button>
+            <button id="nextBtn" class="button button--secondary" type="button">换一题</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>把抽象的“十”变成看得见的格子、星星和步骤。</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
