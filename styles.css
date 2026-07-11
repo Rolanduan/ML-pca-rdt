@@ -1,0 +1,132 @@
+:root {
+  --ink: #26324b;
+  --muted: #667085;
+  --paper: #fffaf0;
+  --white: #ffffff;
+  --blue: #55a7ff;
+  --green: #4cc38a;
+  --orange: #ffad4f;
+  --purple: #9b7bff;
+  --pink: #ff7aa8;
+  --shadow: 0 24px 60px rgba(37, 45, 80, 0.16);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Nunito", "Microsoft YaHei", system-ui, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, #fff2a8, transparent 32rem), linear-gradient(135deg, #eaf6ff, #fff7ef 52%, #f4efff);
+}
+
+.hero {
+  min-height: 92vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 5rem clamp(1rem, 5vw, 6rem);
+}
+.hero__content { max-width: 760px; }
+.eyebrow { color: var(--pink); font-weight: 900; letter-spacing: 0.08em; margin: 0 0 0.5rem; }
+h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin: 0; }
+h2 { font-size: clamp(2rem, 5vw, 4rem); margin: 0; }
+h3 { font-size: clamp(1.5rem, 3vw, 2.4rem); margin: 0.25rem 0; }
+.hero__intro { font-size: clamp(1.2rem, 2vw, 1.55rem); color: var(--muted); line-height: 1.7; }
+.hero__actions, .game-card__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  min-height: 3rem;
+  padding: 0.8rem 1.4rem;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(38, 50, 75, 0.22);
+}
+.button--ghost { background: var(--white); color: var(--ink); }
+.button--secondary { background: var(--orange); }
+.mascot { font-size: clamp(7rem, 18vw, 16rem); filter: drop-shadow(0 30px 22px rgba(0,0,0,.16)); }
+
+.section { padding: 4rem clamp(1rem, 5vw, 6rem); }
+.section__heading { margin-bottom: 1.5rem; }
+.method-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.method-card, .game-card {
+  background: rgba(255,255,255,.82);
+  border: 3px solid rgba(255,255,255,.9);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  padding: 1.4rem;
+}
+.method-card { min-height: 17rem; }
+.method-card__icon { font-size: 3rem; }
+.method-card p { color: var(--muted); line-height: 1.65; }
+.method-card--blue { border-color: #b9ddff; }
+.method-card--green { border-color: #b9efd2; }
+.method-card--orange { border-color: #ffd9a8; }
+.method-card--purple { border-color: #d6c8ff; }
+
+.playground { background: rgba(255,255,255,.34); }
+.tabs { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1rem; }
+.tab {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: white;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0.8rem 1.1rem;
+}
+.tab.is-active { border-color: var(--pink); background: #fff0f6; }
+.game-card { max-width: 980px; }
+.game-card__top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.score { background: #fff0bd; border-radius: 999px; font-size: 1.4rem; font-weight: 900; padding: 0.7rem 1rem; }
+.ten-frames { display: grid; grid-template-columns: repeat(10, 1fr); gap: 0.55rem; margin: 1.5rem 0; }
+.dot {
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  background: #e6ebf2;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  transition: transform .2s, background .2s;
+}
+.dot.filled { background: #ffe66d; transform: translateY(-3px); }
+.dot.take { background: #ff9aa8; }
+.steps { display: grid; gap: 0.8rem; margin: 1rem 0; }
+.step {
+  background: #f8fbff;
+  border-left: 0.5rem solid var(--blue);
+  border-radius: 1rem;
+  padding: 1rem;
+  line-height: 1.6;
+}
+.answer-form { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin-top: 1rem; }
+.answer-form label { font-weight: 900; }
+.answer-form input {
+  border: 3px solid #d9e3f0;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 0.65rem 1rem;
+  width: 9rem;
+}
+.feedback { border-radius: 1rem; font-size: 1.1rem; font-weight: 800; min-height: 3rem; padding: 1rem; }
+.feedback.good { background: #dbffe9; color: #087443; }
+.feedback.try { background: #fff1d9; color: #965300; }
+.footer { padding: 2rem; text-align: center; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .method-grid { grid-template-columns: 1fr; }
+  .ten-frames { grid-template-columns: repeat(5, 1fr); }
+}
